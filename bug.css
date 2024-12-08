@@ -1,0 +1,19 @@
+The following CSS code snippet exhibits an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green;
+}
+```
+
+The unexpected behavior arises when the `div p` selector's specificity overrides the more general `p` selector, but the inheritance from the `div` selector is not what is expected.
+
+One might assume that the paragraph (`<p>`) within the `div` will inherit the `color: blue` from its parent. Then, the `div p` selector would further override this with `color: green`, leading to green text. However, depending on the CSS engine's interpretation, the `color: red` of the `p` selector might win, leading to red text instead of the expected green.
