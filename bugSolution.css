@@ -1,0 +1,17 @@
+The solution lies in understanding and correctly managing CSS specificity.  The `div p` selector has higher specificity than the `p` selector, therefore overriding the `color:red`. However, it does not inherit the `color:blue` from the parent `div`,  thus producing green text as expected.
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This overrides both previous declarations */
+}
+```
+
+To ensure predictable behavior, be explicit in your CSS and avoid relying on unexpected inheritance when dealing with high specificity selectors.
